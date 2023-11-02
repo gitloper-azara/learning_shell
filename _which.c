@@ -33,7 +33,9 @@ int main(int argc, char *argv[])
 		for (i = 0; i < sizeof(filepath); i++)
 			filepath[i] = '\0';
 		j = 0;
-		filepath[j++] = '/';
+		/* check if path starts with '/' */
+		if (token[0] != '/')
+			filepath[j++] = '/';
 		for (i = 0; i < strlen(token); i++)
 			filepath[j++] = token[i];
 		filepath[j++] = '/';
